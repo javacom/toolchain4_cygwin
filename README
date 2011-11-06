@@ -1,10 +1,13 @@
-1.  Cygwin iPhone Toolchain 4
+Cygwin iPhone Toolchain 4
+-------------------------
+
+1.  Install cygwin in Windows http://cygwin.com/install.html
+    Choose Admin, Archive, Base, Devel, Libs, Net, Python, System, Utils, Web
+
+2.  Launch cygwin
     Clone Project
     cd /
     sudo git clone git://github.com/javacom/toolchain4_cygwin.git toolchain4
-
-2.  Install cygwin in Windows http://cygwin.com/install.html
-    Choose Admin, Archive, Base, Devel, Libs, Net, Python, System, Utils, Web
 
     Download pre-built gcc & cctools from http://www.2shared.com/file/nctMF-IN/toolchain4_cygwintar.html to /
     Install gcc & cctools
@@ -21,7 +24,7 @@
     sudo cp -p /toolchain4/as_driver/as_driver ld
     sudo ln -s /toolchain4/pre/bin/arm-apple-darwin9-ld .
 
-4.  Put iPhoneOS4.2.pkg to /toolchain4/sdks/
+4.  Put iPhoneOS4.2.pkg to /toolchain4/sdks/ (see toolchain4 wiki)
     build xar
     ./toolchain.sh xar
     then put iPhoneSDK4_2.pkg to /toolchain4/sdks/
@@ -37,10 +40,12 @@
     to build sys50
 
 5.  Install clang in cygwin
+    mkdir /toolchain4/src
     cd /toolchain4/src
     svn co http://llvm.org/svn/llvm-project/llvm/trunk llvm
     cd llvm/tools
     svn co http://llvm.org/svn/llvm-project/cfe/trunk clang
+    mkdir /toolchain4/bld
     cd /toolchain4/bld 
     ../src/llvm/configure
     make
