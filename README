@@ -7,7 +7,7 @@ Cygwin iPhone Toolchain 4
 2.  Launch cygwin
     Clone Project
     cd /
-    sudo git clone git://github.com/javacom/toolchain4_cygwin.git toolchain4
+    git clone git://github.com/javacom/toolchain4_cygwin.git toolchain4
 
     Download pre-built gcc & cctools from http://www.2shared.com/file/nctMF-IN/toolchain4_cygwintar.html to /
     Install gcc & cctools
@@ -17,16 +17,20 @@ Cygwin iPhone Toolchain 4
     cd /toolchain4/as_driver
     make
     cd /usr/bin
-    sudo mv as i686-pc-cygwin-as
-    sudo cp -p /toolchain4/as_driver/as_driver as
-    sudo ln -s /toolchain4/pre/bin/arm-apple-darwin9-as .
-    sudo mv ld i686-pc-cygwin-ld
-    sudo cp -p /toolchain4/as_driver/as_driver ld
-    sudo ln -s /toolchain4/pre/bin/arm-apple-darwin9-ld .
+    mv as.exe i686-pc-cygwin-as.exe
+    cp -p /toolchain4/as_driver/as_driver.exe as.exe
+    ln -s /toolchain4/pre/bin/arm-apple-darwin9-as.exe .
+    mv ld.exe i686-pc-cygwin-ld.exe
+    cp -p /toolchain4/as_driver/as_driver.exe ld.exe
+    ln -s /toolchain4/pre/bin/arm-apple-darwin9-ld.exe .
 
 4.  Put iPhoneOS4.2.pkg to /toolchain4/sdks/ (see toolchain4 wiki)
     build xar
     ./toolchain.sh xar
+
+    see Wiki if problems on building xar
+
+
     then put iPhoneSDK4_2.pkg to /toolchain4/sdks/
     Use ./toolchain.sh buildsys
     to build sys
@@ -96,7 +100,7 @@ Instructions to add theos build system to toolchain4_cygwin
     make && make stage deb
 
 4.  Test mobilesubstrate extension (requires sys32)
-    cd /toolchain4
+    cd /toolchain4/Projects
     git clone git://github.com/DHowett/preferenceloader.git preferenceloader
     cd /toolchain4/Projects/preferenceloader
     cp /toolchain4/Projects/Makefile_for_preferenceloader Makefile
